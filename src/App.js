@@ -1,11 +1,7 @@
-import _ from './env';
 import React from 'react';
 import './App.css';
 import { Switch, Route, Router} from 'react-router-dom';
 import { DashboardPage, LandingPage, MenuPage, ShopPage} from './pages';
-
-console.log(`App.js`)
-console.log(process.env)
 
 function App() {
   return (

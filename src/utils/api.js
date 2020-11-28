@@ -7,24 +7,24 @@ export function getUserDetails() {
     })
 }
 
-export function getGuilds(){
-    return axios.get(`${config.BACK_END_URL}/api/discord/guilds`, {
-        withCredentials: true,  
-    })
-}
+// export function getGuilds(){
+//     return axios.get(`${config.BACK_END_URL}/api/discord/guilds`, {
+//         withCredentials: true,  
+//     })
+// }
 
-export function getGuildConfig(guildId){
-    return axios.get(`${config.BACK_END_URL}/api/discord/guilds/${guildId}/config`, {
-        withCredentials: true,  
-    })
-}
+// export function getGuildConfig(guildId){
+//     return axios.get(`${config.BACK_END_URL}/api/discord/guilds/${guildId}/config`, {
+//         withCredentials: true,  
+//     })
+// }
 
-export function getGuildRoles(guildId){
-    return axios.get(`${config.BACK_END_URL}/api/discord/guilds/${guildId}/roles`, {
-        withCredentials: true,
-        }
-    );
-}
+// export function getGuildRoles(guildId){
+//     return axios.get(`${config.BACK_END_URL}/api/discord/guilds/${guildId}/roles`, {
+//         withCredentials: true,
+//         }
+//     );
+// }
 
 // export function updateGuildPrefix(guildId, prefix){
 

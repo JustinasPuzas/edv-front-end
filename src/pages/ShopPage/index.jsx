@@ -1,12 +1,7 @@
 import React from 'react';
 import { getUserDetails } from '../../utils/api';
-import {
-    Badge,
-    StarIcon,
-    Flex,
-    Box,
-    Avatar, Button
-  } from "@chakra-ui/core";
+import { useStyles } from './style';
+import {Grid, Button, Typography } from '@material-ui/core';
 
 
 export function ShopPage ( {
@@ -14,6 +9,7 @@ export function ShopPage ( {
 }  ) {
     const [user, setUser] = React.useState( null );
     const [loading, setLoading] = React.useState( true );
+    const classes = useStyles();
 
     const ghostButtonFullSizeRightRound = {
         variant:'ghost',
@@ -30,7 +26,6 @@ export function ShopPage ( {
     React.useEffect ( () => {
         getUserDetails()
             .then(({data}) => {
-                console.log(data)
                 setUser ( data );
                 setLoading( false )
             }).catch( (err) => {
@@ -40,28 +35,17 @@ export function ShopPage ( {
     },[])
 
     return !loading && (
-        <Flex direction='column' paddingX='5%' paddingTop='2%' paddingBottom='2%' align='center'>
-            <Flex  color='white' marginBottom='50px' bg='#1e2124' rounded='50px' w='100%' h='100%' direction='column' align='space-around' justify='space-around'>
-                <Flex h='100%' direction='row' justify='space-between' align='center' paddingX='0'>
-                    <Box>
-                        <Avatar size='lg' src={null}></Avatar>
-                    </Box>
-                    <Box color='yellow'>
-                        Your Gold Coins: 100
-                    </Box>
-                    <Box color='white'>
-                        Your Silver Coins: 500
-                    </Box>
-                    <Box >
-                        <Button ghostButtonFullSizeRightRound _hove={{YellowButton_hover}}>
-                            Buy More uwu
-                        </Button>
-                    </Box>
-                </Flex>
-            </Flex>
-            <Flex  w='100%' direction='row' align='space-around' justify='space-between'>
-                
-            </Flex>
-        </Flex>
+        <Grid container className={classes.root}>
+            <Button onClick={() => window.open(`https://paypal.me/mmJust`, `_blank`)} color='primary' variant='outlined' className={classes.payPalDonate}>
+                <Typography variant='h3' className={classes.excludedGuildsText}>
+                    Support development of Lilu Bot via PayPal
+                </Typography>
+            </Button>
+            <Button onClick={() => window.open(`https://discord.com/channels/@me/741601001173417994`, `_blank`)} color='primary' variant='outlined' className={classes.payPalDonate}>
+                <Typography variant='h3' className={classes.excludedGuildsText}>
+                    Contact me on Discord IGORIS#1569
+                </Typography>
+            </Button>
+        </Grid>
     );
 }

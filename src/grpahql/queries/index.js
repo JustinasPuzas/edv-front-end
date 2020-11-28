@@ -10,6 +10,8 @@ export const navigationBarQuery = gql`
     }
 `
 
+
+
 export const menuPageQuery = gql`
     query getMenuPageQuery {
         getUser {
@@ -39,6 +41,41 @@ export const landingPageQuery = gql`
             discordTag
             avatar
           }
+    }
+`
+
+export const musicModuleQuery = gql`
+
+    query getMusicModuleData($guildId: String){
+        getUser {
+            discordId
+            discordTag
+            avatar
+        }
+        getGuildVoiceChannels(guildId: $guildId) {
+            id
+            name
+        }
+        getMusicModule(guildId: $guildId){
+            prefix
+            display
+            moduleType
+            on
+            status
+            defaultChannel
+            activePlaylist{
+              songs
+            }
+            savedPlaylists{
+                author
+                songs
+            }
+        }
+        getUser{
+            discordId
+            discordTag
+            avatar
+        }
     }
 `
 

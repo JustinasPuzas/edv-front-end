@@ -18,7 +18,7 @@ export function NavigationBar({
         
         <Flex  w='33%' justify='flex-start' marginLeft='1%' >
                 <Text color='#00FFC2' fontSize='4xl'>
-                  Lilu_Inc.
+                  Lilu Inc
                 </Text>
         </Flex>
 
@@ -43,7 +43,6 @@ function UserInfo({
 }){
   const {loading, error, data} = useQuery(navigationBarQuery);
   const login = () => window.location.href = `${config.BACK_END_URL}/api/auth/discord`;
-  console.log(`nav bar data` + data)
 
 
   if(!loading && !error){

@@ -7,10 +7,10 @@ export function Footer({
     return(
         <Flex height='11vh' bg='black' color='white' direction='row' align='center' justify='space-around'>
             <Flex>
-                sveik ivisi
+                by: IGORIS#1569
             </Flex>
             <Flex>
-                labanakt
+                Lilu Inc
             </Flex>
         </Flex>
     )
