@@ -26,8 +26,8 @@ export function DisplaySwitch({
         open: false,
         type: "success", 
         msg: {
-            head: 'Prefix Updated Successfully',
-            info: `new Prefix: ${display}`
+            head: 'Guild Display Updated Successfully',
+            info: ``
         }
     });
     const classes = useStyles();

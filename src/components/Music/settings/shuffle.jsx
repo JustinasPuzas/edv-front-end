@@ -45,7 +45,7 @@ export function ShuffleSwitch({
                 open: true,
                 type: "success",
                 msg: {
-                    head: "Guild Display Updated Successfully",
+                    head: "Shuffle set",
                     info: '',
                 }
             });

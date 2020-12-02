@@ -38,7 +38,7 @@ export function DefaultChannelSelect({
                 open: true,
                 type: "success",
                 msg: {
-                    head: "Default role was changed",
+                    head: "Default Channel has been set",
                     info: ``
                 }
             });

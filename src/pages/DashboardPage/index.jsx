@@ -75,7 +75,8 @@ export function DashboardPage({
                 <Tab disabled={true} label={'Modules'} {...a11yProps(4)} />
             </Tabs>
             <TabPanel color="secondary" value={value} index={0}>
-                <DashboardMenu match={match} history={history}/>
+                Main DashBoard Page
+                {/* <DashboardMenu match={match} history={history}/> */}
             </TabPanel>
             <TabPanel value={value} index={1}>
                 Moderation Panel Coming Soon... (jk not soon :D)

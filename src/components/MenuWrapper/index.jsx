@@ -48,7 +48,7 @@ export function MenuComponent ( {
                 </Grid>
 
                 <Box item className={classes.excludedGuildsText}>
-                    <Button variant='outlined' onClick={ () => window.open(`https://discord.com/api/oauth2/authorize?client_id=734480676086218794&permissions=8&redirect_uri=http%3A%2F%2F192.168.0.101%3A3001%2Fapi%2Fauth%2Fdiscord%2Fredirect&scope=bot`,'_blank')}>
+                    <Button variant='outlined' onClick={ () => window.open(`https://discord.com/api/oauth2/authorize?client_id=734480676086218794&permissions=8&redirect_uri=http%3A%2F%2F51.83.187.112%3A3001%2Fapi%2Fauth%2Fdiscord%2Fredirect&scope=bot`,'_blank')}>
                         <Typography variant='h5' className={classes.excludedGuildsText}>
                             Add Me to other guilds UwU*
                         </Typography>
@@ -58,7 +58,7 @@ export function MenuComponent ( {
                 <Grid item>
                     <GridList  cols={'auto'} className={classes.gridListExcluded}>
                         {guilds.excluded.map((guild) => (
-                            <GridListTile key={guild.id} className={classes.gridListItemExcluded} onClick={ () => window.open(`https://discord.com/api/oauth2/authorize?client_id=734480676086218794&permissions=8&redirect_uri=http%3A%2F%2F192.168.0.101%3A3001%2Fapi%2Fauth%2Fdiscord%2Fredirect&scope=bot`,'_blank')}>
+                            <GridListTile key={guild.id} className={classes.gridListItemExcluded} onClick={ () => window.open(`https://discord.com/api/oauth2/authorize?client_id=734480676086218794&permissions=8&redirect_uri=http%3A%2F%2F51.83.187.112%3A3001%2Fapi%2Fauth%2Fdiscord%2Fredirect&scope=bot`,'_blank')}>
 
                                 <img
                                 src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}?size=512`}

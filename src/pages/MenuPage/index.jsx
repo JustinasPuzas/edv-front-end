@@ -9,7 +9,7 @@ import { useStyles } from './style';
 export function MenuPage ( {
     history,
 } ) {
-
+    console.log(history)
     const { loading, error, data} = useQuery(menuPageQuery);
     const classes = useStyles();
     // const [user, setUser] = React.useState( null );
@@ -50,7 +50,7 @@ export function MenuPage ( {
             </Grid>
         )
     }return(
-        <Grid container justifyContent='center' alignItems='center' alignContent='center'>
+        <Grid className={classes.root}>
             <CircularProgress color="secondary" />
         </Grid>
     )

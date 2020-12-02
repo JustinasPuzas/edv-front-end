@@ -6,7 +6,7 @@ import { updateMusicBotActivePlaylistMutation } from '../../../grpahql/mutations
 import { useStyles } from './style';
 import {
 
-        DeleteForever as DeleteForeverIcon
+        DeleteForever as DeleteForeverIcon, RestaurantMenuTwoTone
 
 } from '@material-ui/icons';
 import {MenuItem, List, ListItemAvatar, ListSubheader, ListItem, ListItemText, ListItemSecondaryAction, IconButton, FormControl, Divider, Select, Typography, Grid, Card, CardActionArea, CardContent, TextField, Container, Button } from '@material-ui/core';
@@ -65,6 +65,7 @@ export function ActivePlaylistManager({
                     info: ``
                 }
             });
+            console.log(response.data.updateMusicBotActivePlaylist)
             setActivePlaylist(response.data.updateMusicBotActivePlaylist)
             setUpdated(false)
         }catch (err) {
@@ -134,10 +135,30 @@ export function ActivePlaylistManager({
                                         </List>
                                         <Field name='tempLink' type='input' id="standard-basic" autoComplete='off' value={values.tempLink} label='Youtube Link' as={TextField}></Field>
                                         <Button disabled={isSubmitting} onClick={() => {
-                                            if(!(values.tempLink.startsWith(`https://www.youtube.com`) ||  values.tempLink.startsWith(`https://youtu.be`))) return
+                                            if(!(values.tempLink.startsWith(`https://www.youtube.com`) ||  values.tempLink.startsWith(`https://youtu.be`))){
+                                                setParams({
+                                                    open: true,
+                                                    type: "error",
+                                                    msg: {
+                                                        head: "Only links from youtube are allowed",
+                                                        info: `link has to start with https://www.youtube.com or https://youtu.be`
+                                                    }
+                                                });
+                                                return
+                                            }
                                             if(values.tempLink.length > 80) return;
                                             const song = values.songs.find( song => song.link == (values.tempLink.trim()) )
-                                            if(song) return
+                                            if(song){   
+                                                setParams({
+                                                    open: true,
+                                                    type: "error",
+                                                    msg: {
+                                                        head: "this song is already added",
+                                                        info: ``
+                                                    }
+                                                });
+                                                return
+                                            }
                                             addSong(values.tempLink)
                                             arrayHelpers.push({
                                             author: `${user.discordId}`,

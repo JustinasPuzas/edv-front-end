@@ -143,7 +143,6 @@ export function MusicModule({
 
         <TabPanel value={value} index={1}>
             <Grid container className={classes.panel}>
-                
                 <Grid item xs>
                   <Grid item className={classes.card}>
                       <Card>
@@ -209,13 +208,11 @@ export function MusicModule({
         </TabPanel>
 
         <TabPanel value={value} index={3}>
-            <Container fixed>
-                <Grid container className={classes.panel}>
-                  <Grid item xs>
-                    HELP
-                  </Grid>
-                </Grid>
-            </Container>
+        <Container fixed>
+            <Grid container className={classes.panel}>
+              Sveiki
+            </Grid>
+          </Container>
         </TabPanel>
       </div>
       )
@@ -223,7 +220,7 @@ export function MusicModule({
       return (
         <Grid>
           <Typography>
-            You haven't aded Lilu Radio to your guild
+            You haven't added Lilu Radio to your guild
           </Typography>
           <Button onClick={ () => window.open(`https://discord.com/api/oauth2/authorize?client_id=778330268490137642&permissions=8&scope=bot`,'_blank')}>
             Add Lilu Radio
