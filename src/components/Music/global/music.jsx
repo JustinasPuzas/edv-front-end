@@ -75,6 +75,7 @@ export function MusicModule({
           setPrefix(data.getMusicModule.prefix)
           setState(data.getMusicModule.on)
           setDisplay(data.getMusicModule.display)
+          console.log(`Shuffle: ` + data.getMusicModule.shuffle)
           setShuffle(data.getMusicModule.shuffle)
           if(data.getMusicModule.defaultChannel) setDefaultChannel(data.getMusicModule.defaultChannel)
           else setDefaultChannel("0")

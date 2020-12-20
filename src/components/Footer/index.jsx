@@ -7,10 +7,10 @@ export function Footer({
     return(
         <Flex height='11vh' bg='black' color='white' direction='row' align='center' justify='space-around'>
             <Flex>
-                by: IGORIS#1569
+                Discord: https://discord.gg/JWECz5crCA
             </Flex>
             <Flex>
-                Lilu Inc
+                Lilu Inc.
             </Flex>
         </Flex>
     )

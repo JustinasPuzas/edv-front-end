@@ -41,9 +41,9 @@ export function ShopPage ( {
                     Support development of Lilu Bot via PayPal
                 </Typography>
             </Button>
-            <Button onClick={() => window.open(`https://discord.com/channels/@me/741601001173417994`, `_blank`)} color='primary' variant='outlined' className={classes.payPalDonate}>
-                <Typography variant='h3' className={classes.excludedGuildsText}>
-                    Contact me on Discord IGORIS#1569
+            <Button onClick={() => window.open(`https://discord.gg/JWECz5crCA`, `_blank`)} color='primary' variant='outlined' className={classes.payPalDonate}>
+                <Typography variant='h4' className={classes.excludedGuildsText}>
+                    Contact me on Discord @IGORIS#1569
                 </Typography>
             </Button>
         </Grid>

@@ -59,6 +59,7 @@ export const musicModuleQuery = gql`
         getMusicModule(guildId: $guildId){
             prefix
             display
+            shuffle
             moduleType
             on
             status
