@@ -90,19 +90,6 @@ export function MusicModule({
       }
     };
 
-    // React.useEffect(() =>{
-    //   if(!loading){
-    //     setReload(true)
-    //     refetch();
-    //     console.log(`FIRE`)
-    //     setGuildConfig(data.getGuildConfig)
-    //     if(guildConfig){
-    //       setPrefix(guildConfig.prefix)
-    //     }
-    //   }
-    // },[])
-
-
     if(error){
       return(
         <div>Error</div>
@@ -217,7 +204,7 @@ export function MusicModule({
         </TabPanel>
       </div>
       )
-    }else{
+    }else if (data.getUser.discordId){
       return (
         <Grid>
           <Typography>
@@ -227,6 +214,11 @@ export function MusicModule({
             Add Lilu Radio
           </Button>
         </Grid>
+      )
+    }else{
+      history.push('/')
+      return(
+          null
       )
     }
 

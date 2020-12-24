@@ -3,6 +3,7 @@ import { Notification } from '../../'
 import { Formik, Field, Form } from 'formik';
 import { useMutation } from '@apollo/client';
 import { updateMusicBotStateMutation } from '../../../grpahql/mutations';
+import {teal, red} from '@material-ui/core/colors'
 
 import {    Menu as MenuIcon,
     ChevronLeft as ChevronLeftIcon,
@@ -80,11 +81,11 @@ export function StateSwitch({
                     {({values,  isSubmitting, handleChange}) =>(
                             <Form>
                                 <Grid container justify = 'center' direction='column' className={classes.cardContent}>
-                                        <Grid item xs className={classes.cardContentChildren}>
-                                        <Typography>{state ? "Radio Bot is Enabled" : "Radio Bot is Disabled" }</Typography>
+                                        <Grid color={red.A100} item xs className={classes.cardContentChildren}>
+                                        <Typography color={red.A100}>{state ? "🟢 Radio Bot is Enabled" : "🔴 Radio Bot is Disabled" }</Typography>
                                         </Grid>
                                         <Grid item xs className={classes.cardContentChildren}>
-                                            <Button disabled={isSubmitting} color='primary' variant='outlined' type="submit" children={state? "Turn Off" : "Turn On"} />
+                                            <Button color="primary" disabled={isSubmitting} variant='outlined' type="submit" children={state? "Turn Off" : "Turn On"} />
                                         </Grid>
                                         <Notification
                                             params = {params}

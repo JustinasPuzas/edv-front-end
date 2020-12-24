@@ -12,26 +12,6 @@ export function MenuPage ( {
     console.log(history)
     const { loading, error, data} = useQuery(menuPageQuery);
     const classes = useStyles();
-    // const [user, setUser] = React.useState( null );
-    // const [loading, setLoading] = React.useState( true );
-    // const [guilds, setGuilds] = React.useState([]);
-
-    // React.useEffect ( () => {
-    //     getUserDetails()
-    //         .then(({data}) => {
-    //             console.log(data)
-    //             setUser ( data );
-    //             return getGuilds();
-    //         }).then(
-    //             ({data}) =>{
-    //                 console.log(data)
-    //                 setGuilds(data);
-    //                 setLoading( false )
-    //         }).catch( (err) => {
-    //             history.push('/')
-    //             setLoading( false )
-    //         })
-    // },[])
 
     if(!loading && !error) { 
         const { getMutualGuilds } = data;
@@ -54,13 +34,4 @@ export function MenuPage ( {
             <CircularProgress color="secondary" />
         </Grid>
     )
-
-    // return !loading && (
-    //     <div>
-    //         <h1>Menu Page UWU</h1>
-    //         <MenuComponent guilds={ guilds }/>
-    //     </div>
-    // );
-
-
 }

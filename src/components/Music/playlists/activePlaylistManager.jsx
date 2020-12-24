@@ -6,7 +6,9 @@ import { updateMusicBotActivePlaylistMutation } from '../../../grpahql/mutations
 import { useStyles } from './style';
 import {
 
-        DeleteForever as DeleteForeverIcon, RestaurantMenuTwoTone
+        DeleteForever as DeleteForeverIcon,
+        DoneOutlineOutlined as DoneOutlineOutlinedIcon,
+        List as ListIcon
 
 } from '@material-ui/icons';
 import {MenuItem, List, ListItemAvatar, ListSubheader, ListItem, ListItemText, ListItemSecondaryAction, IconButton, FormControl, Divider, Select, Typography, Grid, Card, CardActionArea, CardContent, TextField, Container, Button } from '@material-ui/core';
@@ -110,9 +112,12 @@ export function ActivePlaylistManager({
                         
                     }}
                 >
-                    {({ values, errors, isSubmitting}) => (
+                    {({ values, errors, isSubmitting, setFieldValue}) => (
                         <Form>
-                            {updated? <Button disabled={isSubmitting} type='submit' children="Update Playlist" /> : <Button onClick={handleClickOpen}>Playlist</Button>}
+                            {updated? 
+                            <Button disabled={isSubmitting} variant="contained" color="secondary" startIcon={<DoneOutlineOutlinedIcon />} >Update Playlist</Button> 
+                            :
+                            <Button variant='outlined' onClick={handleClickOpen} startIcon={<ListIcon />}>Playlist</Button>}
                             <FieldArray name='songs'>
                                 {(arrayHelpers) => (
                                     <Grid xl className={classes.form}>
@@ -133,7 +138,7 @@ export function ActivePlaylistManager({
                                             </ListItem>
                                         )})}
                                         </List>
-                                        <Field name='tempLink' type='input' id="standard-basic" autoComplete='off' value={values.tempLink} label='Youtube Link' as={TextField}></Field>
+                                        <Field name='tempLink' type='input' id="input-youtube-link" autoComplete='off' value={values.tempLink} label='Youtube Link' as={TextField}></Field>
                                         <Button disabled={isSubmitting} onClick={() => {
                                             if(!(values.tempLink.startsWith(`https://www.youtube.com`) ||  values.tempLink.startsWith(`https://youtu.be`))){
                                                 setParams({
@@ -147,6 +152,7 @@ export function ActivePlaylistManager({
                                                 return
                                             }
                                             if(values.tempLink.length > 80) return;
+                                            
                                             const song = values.songs.find( song => song.link == (values.tempLink.trim()) )
                                             if(song){   
                                                 setParams({
@@ -159,6 +165,7 @@ export function ActivePlaylistManager({
                                                 });
                                                 return
                                             }
+                                            
                                             addSong(values.tempLink)
                                             arrayHelpers.push({
                                             author: `${user.discordId}`,
@@ -166,7 +173,8 @@ export function ActivePlaylistManager({
                                             thumbnail: '',
                                             link: `${values.tempLink}`
                                             })
-                                            values.tempLink=''
+                                            setFieldValue(`tempLink`,'')
+
                                         }}>Add Song</Button>
                                     </Grid>
                                 )}
