@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useQuery, useMutation } from '@apollo/client';
 import { musicModuleQuery } from '../../../grpahql/queries';
 import { PrefixField, StateSwitch, DisplaySwitch, DefaultChannelSelect, ShuffleSwitch } from '../settings';
+import { MusicModuleHelpTabPlaylistCard, MusicModuleHelpTabSetUpTab } from '../help';
 import { ActivePlaylistManager } from '../playlists';
 
 import {    
@@ -110,12 +111,12 @@ export function MusicModule({
             scrollButtons="on"
             value={value}
             onChange={handleChange} 
-            aria-label="simple tabs example"
+            aria-label="music tabs"
         >   
-            <Tab  label={'Home'} {...a11yProps(0)} ></Tab>
-            <Tab  label={'Settings'} {...a11yProps(1)} />
-            <Tab  label={'Playlists'} {...a11yProps(2)} />
-            <Tab  label={'HELP'} {...a11yProps(3)} />
+              <Tab  label={'Home'} {...a11yProps(0)} ></Tab>
+              <Tab  label={'Settings'} {...a11yProps(1)} />
+              <Tab  label={'Playlists'} {...a11yProps(2)} />
+              <Tab  label={'HELP'} {...a11yProps(3)} />
         </Tabs>
 
 
@@ -130,6 +131,7 @@ export function MusicModule({
         </TabPanel>
 
         <TabPanel value={value} index={1}>
+          <Container fixed>
             <Grid container className={classes.panel}>
                 <Grid item xs>
                   <Grid item className={classes.card}>
@@ -180,7 +182,7 @@ export function MusicModule({
                   />
                 </Grid>
             </Grid>
-          
+          </Container>
         </TabPanel>
         <TabPanel value={value} index={2}>
           <Container fixed>
@@ -196,15 +198,29 @@ export function MusicModule({
         </TabPanel>
 
         <TabPanel value={value} index={3}>
-        <Container fixed>
+          <Container fixed>
             <Grid container className={classes.panel}>
-              Sveiki
+                <Grid item className={classes.card}>
+                <Card>
+                  <MusicModuleHelpTabSetUpTab
+                    match = {match}
+                  />
+                </Card>
+              </Grid>
+
+              <Grid item className={classes.card}>
+                <Card>
+                  <MusicModuleHelpTabPlaylistCard 
+                    match = {match}
+                />
+                </Card>
+              </Grid>
             </Grid>
           </Container>
         </TabPanel>
       </div>
       )
-    }else if (data.getUser.discordId){
+    }else if (data.getUser){
       return (
         <Grid>
           <Typography>

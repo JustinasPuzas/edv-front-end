@@ -115,7 +115,7 @@ export function ActivePlaylistManager({
                     {({ values, errors, isSubmitting, setFieldValue}) => (
                         <Form>
                             {updated? 
-                            <Button disabled={isSubmitting} variant="contained" color="secondary" startIcon={<DoneOutlineOutlinedIcon />} >Update Playlist</Button> 
+                            <Button disabled={isSubmitting} type='submit' variant="contained" color="secondary" startIcon={<DoneOutlineOutlinedIcon />} >Update Playlist</Button> 
                             :
                             <Button variant='outlined' onClick={handleClickOpen} startIcon={<ListIcon />}>Playlist</Button>}
                             <FieldArray name='songs'>
